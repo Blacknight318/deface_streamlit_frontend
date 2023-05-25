@@ -34,8 +34,6 @@ def main():
                 st.video(output_file)
                 
                 # Download code
-                # binary_content = b"output_file"
-                # st.download_button("Download processed video", binary_content)
                 with open('defaced_video.mp4', 'rb') as f:
                     st.download_button('Download MP4', f, file_name='defaced_video.mp4')
             else:
