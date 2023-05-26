@@ -20,11 +20,22 @@ def main():
         temp_file_path = os.path.join(temp_dir.name, video_file.name)
         with open(temp_file_path, "wb") as f:
             f.write(video_file.read())
-        
+           
+        # Adding options to retain audio and set threshold for more customized processing
+        add_option = st.checkbox("Add --keep-audio option")
+
+        # Adding slider from 0.01 to 0.99 for threshold adjustment
+        threshold = st.slider("Adjust threshold(default 0.2)", min_value=0.01, max_value=0.99, value=0.2, step=0.01)
+
         # Run deface CLI program
         if st.button("Run deface"):
             output_file = "defaced_video.mp4"
             command = ["deface", temp_file_path, "-o", output_file]
+            if add_option:
+                command.append("--keep-audio")
+            
+            if threshold != 0.2:
+                command.extend(["-t", str(threshold)])
             
             process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdout, stderr = process.communicate()
