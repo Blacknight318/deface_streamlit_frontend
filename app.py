@@ -36,6 +36,7 @@ def main():
                 # Download code
                 with open('defaced_video.mp4', 'rb') as f:
                     st.download_button('Download MP4', f, file_name='defaced_video.mp4')
+                    os.remove(output_file)
             else:
                 st.error("Deface process failed. Error message:")
                 st.code(stderr.decode("utf-8"))
