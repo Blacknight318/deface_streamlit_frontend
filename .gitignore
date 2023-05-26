@@ -161,3 +161,6 @@ cython_debug/
 
 # Media files
 *.mp4
+
+# Nohup headless mode output
+nohup
