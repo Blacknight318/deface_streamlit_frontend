@@ -1,0 +1,17 @@
+## Streamlit wrapper for the python deface module for facial blurr
+
+### Running the program
+```bash
+git clone https://github.com/Blacknight318/deface_streamlit_frontend
+cd deface_streamlit_frontend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### libgl error
+If you get a libgl and are on ubuntu not using a fiscrete graphics card run the following
+```bash
+sudo apt install libgl1-mesa-glx
+```
