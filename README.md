@@ -2,7 +2,7 @@
 
 ### Running the program
 ```bash
-git clone https://github.com/Blacknight318/deface_streamlit_frontend
+git clone https://github.com/Blacknight318/deface_streamlit_frontend.git
 cd deface_streamlit_frontend
 python -m venv venv
 source venv/bin/activate
