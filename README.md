@@ -15,3 +15,6 @@ If you get a libgl and are on ubuntu not using a fiscrete graphics card run the 
 ```bash
 sudo apt install libgl1-mesa-glx
 ```
+
+### NVIDIA GPU
+If you're using an NVIDIA GPU then you can comment out line 60 to revert back to the default onnxruntime.
