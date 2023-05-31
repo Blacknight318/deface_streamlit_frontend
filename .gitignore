@@ -166,3 +166,5 @@ cython_debug/
 nohup
 nohup.out
 statusbar_test.py
+.DS_Store
+compose-dev.yaml
