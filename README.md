@@ -1,4 +1,6 @@
-## Streamlit wrapper for the python deface module for facial blurr
+# Streamlit wrapper for the python deface module for facial blurr
+
+## Running the code natively
 
 ### Running the program
 ```bash
@@ -18,3 +20,9 @@ sudo apt install libgl1-mesa-glx
 
 ### NVIDIA GPU
 If you're using an NVIDIA GPU then you can comment out line 60 to revert back to the default onnxruntime.
+
+
+## Running as a docker
+```bash
+docker run -d --name deface-streamlit-frontend -p 8080:8501 merlin615/deface-webui:nonvidia-latest
+```
