@@ -3,6 +3,7 @@ import subprocess
 import tempfile
 import os
 import re
+import time
 # import threading
 
 
@@ -19,6 +20,11 @@ def parse_percentage(output_line):
     else:
         return None
 
+def format_time(seconds):
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds = int(seconds % 60)
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 def main():
     st.title("Anonymizing Video Files")
@@ -48,6 +54,7 @@ def main():
             
             # output_file = "defaced_video.mp4"
             output_file = os.path.join(temp_dir.name, os.path.splitext(video_file.name)[0] + "_processed.mp4")
+            start_time = time.time()
             command = ["deface", temp_file_path, "-o", output_file]
             
             if add_option:
@@ -79,7 +86,11 @@ def main():
             if process.returncode == 0:
                 st.success("Deface process completed successfully!")
                 st.video(output_file)
-                
+                end_time = time.time()
+                elapsed_time =  end_time - start_time
+                formatted_time = format_time(elapsed_time)
+                st.write(f"Processing took {formatted_time} seconds.")
+
                 # Download code
                 with open(output_file, 'rb') as f:
                     st.download_button('Download MP4', f, file_name=output_file)
