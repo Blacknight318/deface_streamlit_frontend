@@ -12,6 +12,14 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+### If you are using an Intel CPU with no discrete GPU run the following commands to improve performance
+_Note you will need to be on Python 3.6-3.9 to use OpenVino_
+```bash
+pip remove deface
+pip install onnxruntime-openvino openvino
+pip install 'git+https://github.com/ORB-HD/deface.git'
+```
+
 ### libgl error
 If you get a libgl and are on ubuntu not using a fiscrete graphics card run the following
 ```bash
