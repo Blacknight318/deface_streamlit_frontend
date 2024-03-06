@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.10.6-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     curl \
     software-properties-common \
@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/Blacknight318/deface_streamlit_frontend.git .
+
+RUN pip3 install --upgrade pip
 
 RUN pip3 install -r requirements.txt
 
